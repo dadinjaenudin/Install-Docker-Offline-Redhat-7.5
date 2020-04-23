@@ -5,9 +5,11 @@ tags: Sysadmin
 # Install Docker Offline on Red Hat Enterprise Linux Server release 7.5
 
 
-### Copy file to server
+### Download file
+
 ```
-tar xvf docker-source-offline
+wget http://dadinjaenudin.com/source/docker-source-offline.zip
+unzip docker-source-offline.zip
 cd docker-source-offline
 chmod +x install.sh
 ./install.sh
@@ -54,6 +56,27 @@ now the docker up and running
 
 ### Stop docker
 systemctl stop docker
+
+### Installing Docker Compose
+In order to get the latest release, take the lead of the Docker docs and install Docker Compose from the binary in Docker’s GitHub repository.
+
+Check the current release and if necessary, update it in the command below:
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+Next, set the permissions to make the binary executable:
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+Then, verify that the installation was successful by checking the version:
+
+```
+docker-compose --version
+```
+
+This will print out the version you installed:
 
 
 Happy Learning !!!
